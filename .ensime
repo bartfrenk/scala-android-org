@@ -1,0 +1,6 @@
+(:root-dir "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment"
+:cache-dir "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/.ensime_cache.d"
+:name "android-scala-experiment"
+:java-home "/usr/lib/jvm/java-7-openjdk-amd64"
+:scala-version "2.11.7"
+:subprojects ())

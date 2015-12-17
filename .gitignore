@@ -1,0 +1,10 @@
+local.properties
+*.class
+
+# gradle
+build/
+.gradle/
+gradle/
+
+# sbt
+target
