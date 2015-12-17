@@ -8,3 +8,8 @@ local.properties
 
 # sbt
 target/
+.history
+
+# ensime
+/.ensime_cache/
+
