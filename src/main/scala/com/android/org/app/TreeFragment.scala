@@ -1,4 +1,4 @@
-package com.android.org
+package com.android.org.app
 
 import android.app.ListFragment
 

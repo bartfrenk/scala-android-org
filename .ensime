@@ -1,22 +1,22 @@
 (
- :root-dir "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment"
- :cache-dir "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/.ensime_cache"
- :name "com-android-org"
+ :root-dir "/home/bart/remote/Dropbox/documents/projects/scala-android-org"
+ :cache-dir "/home/bart/remote/Dropbox/documents/projects/scala-android-org/.ensime_cache"
+ :name "scala-android-org"
  :java-home "/usr/lib/jvm/java-1.7.0-openjdk-amd64"
  :java-flags ("-XX:MaxPermSize=256m" "-XX:ReservedCodeCacheSize=128m" "-Xms1024m" "-Xmx1024m" "-Xss2m")
  :reference-source-roots ("/usr/lib/jvm/java-1.7.0-openjdk-amd64/src.zip")
- :scala-version "2.10.5"
- :compiler-args ("-Xfuture" "-Xlint" "-Yinline-warnings" "-Yno-adapted-args" "-Ywarn-dead-code" "-Ywarn-numeric-widen" "-bootclasspath" "-deprecation" "-feature" "-javabootclasspath" "/home/bart/lib/android-sdk-linux/platforms/android-23/android.jar")
+ :scala-version "2.11.7"
+ :compiler-args ("-Xfuture" "-Xlint" "-Yinline-warnings" "-Yno-adapted-args" "-Ywarn-dead-code" "-Ywarn-numeric-widen" "-Ywarn-unused-import" "-bootclasspath" "-deprecation" "-feature" "-javabootclasspath" "/home/bart/lib/android-sdk-linux/platforms/android-23/android.jar")
  :formatting-prefs nil
  :subprojects ((
-   :name "com-android-org"
-   :source-roots ("/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/src/main" "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/src/main/java" "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/src/main/scala" "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/src/test/java" "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/src/test/scala" "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/src/test/scala-2.10" "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/target/android/generated/source" "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/target/scala-2.10/src_managed/test")
-   :targets ("/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/target/android/intermediates/classes")
-   :test-targets ("/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/target/scala-2.10/test-classes")
+   :name "scala-android-org"
+   :source-roots ("/home/bart/remote/Dropbox/documents/projects/scala-android-org/src/main" "/home/bart/remote/Dropbox/documents/projects/scala-android-org/src/main/java" "/home/bart/remote/Dropbox/documents/projects/scala-android-org/src/main/scala" "/home/bart/remote/Dropbox/documents/projects/scala-android-org/src/test/java" "/home/bart/remote/Dropbox/documents/projects/scala-android-org/src/test/scala" "/home/bart/remote/Dropbox/documents/projects/scala-android-org/target/android/generated/source")
+   :targets ("/home/bart/remote/Dropbox/documents/projects/scala-android-org/target/android/intermediates/classes")
+   :test-targets ("/home/bart/remote/Dropbox/documents/projects/scala-android-org/target/scala-2.11/test-classes")
    :depends-on-modules nil
-   :compile-deps ("/home/bart/.sbt/boot/scala-2.10.5/lib/scala-library.jar")
+   :compile-deps ("/home/bart/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar" "/home/bart/.ivy2/cache/org.scalaz/scalaz-core_2.11/bundles/scalaz-core_2.11-7.2.0.jar")
    :runtime-deps nil
-   :test-deps nil
-   :doc-jars ("/home/bart/.ivy2/cache/org.scala-lang/scala-library/docs/scala-library-2.10.5-javadoc.jar" "/home/bart/remote/Dropbox/documents/projects/android-scala-experiment/target/scala-2.10/com-android-org_2.10-0.1-SNAPSHOT-javadoc.jar")
-   :reference-source-roots ("/home/bart/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.5-sources.jar")))
+   :test-deps ("/home/bart/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.2.jar" "/home/bart/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.2.jar" "/home/bart/.ivy2/cache/org.scala-sbt/test-interface/jars/test-interface-1.0.jar" "/home/bart/.ivy2/cache/org.scalacheck/scalacheck_2.11/jars/scalacheck_2.11-1.12.5.jar" "/home/bart/.ivy2/cache/org.scalatest/scalatest_2.11/bundles/scalatest_2.11-2.2.4.jar")
+   :doc-jars ("/home/bart/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/docs/scala-xml_2.11-1.0.2-javadoc.jar" "/home/bart/.ivy2/cache/org.scala-lang/scala-library/docs/scala-library-2.11.7-javadoc.jar" "/home/bart/.ivy2/cache/org.scala-lang/scala-reflect/docs/scala-reflect-2.11.2-javadoc.jar" "/home/bart/.ivy2/cache/org.scala-sbt/test-interface/docs/test-interface-1.0-javadoc.jar" "/home/bart/.ivy2/cache/org.scalacheck/scalacheck_2.11/docs/scalacheck_2.11-1.12.5-javadoc.jar" "/home/bart/.ivy2/cache/org.scalatest/scalatest_2.11/docs/scalatest_2.11-2.2.4-javadoc.jar" "/home/bart/.ivy2/cache/org.scalaz/scalaz-core_2.11/docs/scalaz-core_2.11-7.2.0-javadoc.jar" "/home/bart/remote/Dropbox/documents/projects/scala-android-org/target/scala-2.11/android-org_2.11-0.1-SNAPSHOT-javadoc.jar")
+   :reference-source-roots ("/home/bart/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/srcs/scala-xml_2.11-1.0.2-sources.jar" "/home/bart/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.7-sources.jar" "/home/bart/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.11.2-sources.jar" "/home/bart/.ivy2/cache/org.scala-sbt/test-interface/srcs/test-interface-1.0-sources.jar" "/home/bart/.ivy2/cache/org.scalacheck/scalacheck_2.11/srcs/scalacheck_2.11-1.12.5-sources.jar" "/home/bart/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.4-sources.jar" "/home/bart/.ivy2/cache/org.scalaz/scalaz-core_2.11/srcs/scalaz-core_2.11-7.2.0-sources.jar")))
 )
