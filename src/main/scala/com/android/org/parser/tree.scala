@@ -13,3 +13,20 @@ case class Tree[+A](value: A, branches: List[Tree[A]]) {
   }
 
 }
+
+object Tree {
+  def count[A](tree: Tree[A]): Int =
+    scan(1)(tree)(_ + _)
+
+  def scan[A, B](z: B)(tree: Tree[A])(f: (B, B) => B): B =
+    tree.branches.foldLeft(z)((acc, branch) => f(acc, scan(z)(branch)(f)))
+
+  /** Scan tree in depth first order, applying a monoid operation at each step. */
+  def annotate[A, B](z: B)(tree: Tree[A])(op: (B, B) => B): Tree[(A, B)] = {
+    val branches = tree.branches.map(branch => annotate(z)(branch)(op))
+    val annotation = branches.foldLeft(z)((acc, branch) => branch.value match {
+      case (_, b) => op(acc, b)
+    })
+    Tree((tree.value, annotation), branches)
+  }
+}
