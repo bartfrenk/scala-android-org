@@ -1,4 +1,4 @@
-package parsers
+package com.android.org.parser
 
 import scala.math.min
 import scala.language.implicitConversions

@@ -1,4 +1,4 @@
-package parsers
+package com.android.org.parser
 
 import scala.language.higherKinds
 import scala.language.implicitConversions
