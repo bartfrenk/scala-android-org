@@ -14,4 +14,15 @@ libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.4" % "test"
 
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.12.5" % "test"
 
-minSdkVersion in Android := "11"
+// allows incremental multidex
+minSdkVersion in Android := "21"
+
+proguardScala in Android := true
+
+useProguard in Android := true
+
+proguardCache in Android := Seq.empty
+
+dexMaxHeap in Android := "2048m"
+
+dexMulti in Android := true
