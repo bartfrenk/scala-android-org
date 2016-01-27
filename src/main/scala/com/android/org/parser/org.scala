@@ -3,14 +3,24 @@ package com.android.org.parser
 import scala.math.min
 import scala.language.implicitConversions
 
-sealed trait OrgNode
+sealed trait OrgNode {
+  def mkString: String
+}
 object OrgNode {
   type Document = Tree[OrgNode]
 
-  case object Root extends OrgNode
-  case class Header(level: Int, content: Line) extends OrgNode
-  case class Paragraph(content: List[Line]) extends OrgNode
-  case class Blank(content: Line) extends OrgNode
+  case object Root extends OrgNode {
+    def mkString: String = "ROOT"
+  }
+  case class Header(level: Int, content: Line) extends OrgNode {
+    def mkString: String = "*" * level + " " + content._1
+  }
+  case class Paragraph(content: List[Line]) extends OrgNode {
+    def mkString: String = (content map (line => line._1)).mkString("\n")
+  }
+  case class Blank(content: Line) extends OrgNode {
+    def mkString: String = content._1 + "\n"
+  }
 
   def descends(parent: OrgNode)(child: Header): Boolean = parent match {
     case Header(level, _) => child.level > level
@@ -48,6 +58,7 @@ object OrgParsers extends Parsers[OrgParser] {
 
   import OrgNode._
 
+  // TODO return a mutable tree
   def doc(root: OrgNode = Root): OrgParser[Document] = {
     val subsection = (header guard descends(root)) >>= (sub => doc(sub))
     val leaf = (blank or paragraph) map (x => Tree(x, List.empty))
@@ -65,6 +76,7 @@ object OrgParsers extends Parsers[OrgParser] {
     case (str, EOF) => str.trim.isEmpty & !str.isEmpty
   } map Blank
 
+  /** Parser that returns the number of subsequent '*' and fails if there are none. */
   def level: OrgParser[Int] = (count('*') guard (n => n > 0)) >>= (n => char(' ') >> point(n))
 
   def line: OrgParser[Line] = {
@@ -72,6 +84,7 @@ object OrgParsers extends Parsers[OrgParser] {
     ((any(_.char) until marker) ** marker) map {case (cs, m) => (cs.mkString, m)}
   }
 
+  /** Parser that consumes the next line break and returns an `EOL` marker. */
   def eol: OrgParser[Marker] = char('\n') >> point(EOL)
 
   def eof: OrgParser[Marker] = OrgParser(before =>

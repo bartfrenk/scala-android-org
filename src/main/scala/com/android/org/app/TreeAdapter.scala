@@ -1,6 +1,6 @@
 package com.android.org.app
 
-import android.widget.ListAdapter
+import android.widget.BaseAdapter
 import android.view.View
 import android.content.Context
 import android.widget.Adapter
@@ -17,21 +17,21 @@ import com.android.org.parser.OrgNode
   * @param tree tree representation of the data to wrap
   * @param res maps node values of the tree to resource id's
   */
-class OrgTreeAdapter(val context: Context, tree: MutableTree[OrgNode], val res: OrgNode => Int) extends ListAdapter {
-  val LOG_TAG = "OrgTreeAdapter"
 
-  def undefined = throw new Exception("not implemented")
+// TODO this should have a bound type parameter for better seperation of concerns
+class OrgTreeAdapter(val context: Context, tree: MutableTree[OrgNode]) extends BaseAdapter {
+
+  /** Tag under which this class writes to the Android logs. */
+  val LOG_TAG: String = getClass.getSimpleName
 
   def getCount: Int = tree.count
+
   def getItem(position: Int): Object = tree.get(position)
 
-  // every item is selectable
-  def areAllItemsEnabled: Boolean = true
-  def isEnabled(position: Int): Boolean = true
-
   def getItemId(position: Int): Long = position
-  def getItemViewType(position: Int): Int = Adapter.IGNORE_ITEM_VIEW_TYPE
+
   def getView(position: Int, convertView: View, group: ViewGroup): View = {
+    Log.e(LOG_TAG, s"obtaining view for position $position")
     (convertView, tree.get(position)) match {
       case (_, None) => {
         Log.e(LOG_TAG, "no position " + position + " in org tree")
@@ -39,11 +39,11 @@ class OrgTreeAdapter(val context: Context, tree: MutableTree[OrgNode], val res: 
       }
       case (null, Some(subtree)) => {
         val view = new TextView(context)
-        view.setText("bla")
+        view.setText(subtree.value.mkString)
         view
       }
       case (view: TextView, Some(subtree)) => {
-        view.setText("blabla")
+        view.setText(subtree.value.mkString)
         view
       }
       case _ => {
@@ -53,10 +53,6 @@ class OrgTreeAdapter(val context: Context, tree: MutableTree[OrgNode], val res: 
     }
   }
 
-  def getViewTypeCount(): Int = 1
-  def hasStableIds: Boolean = false
   // adapter is considered to be empty when it adapts the minimal non-empty tree
-  def isEmpty: Boolean = (getCount == 1)
-  def registerDataSetObserver(obs: DataSetObserver): Unit = undefined
-  def unregisterDataSetObserver(obs: DataSetObserver): Unit = undefined
+  override def isEmpty: Boolean = (getCount == 1)
 }
